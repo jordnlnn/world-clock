@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"></link>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"
       referrerpolicy="no-referrer"
@@ -14,6 +15,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    
     <title>World Clock - Jordan Goldtooth</title>
   </head>
   <body>
@@ -31,27 +33,50 @@
 
       <div id="cities">
         <div class="city" id="los-angeles">
+          <div class="clock-container">
+            <div class="clock-face">
+              <div class="needle hour"></div>
+              <div class="needle minute"></div>
+              <div class="needle second"></div>
+              <div class="center-point"></div>
+            </div>
+          </div>
           <div class="text-wrapper">
-            <div class="time"><!--<small></small>--></div>
+            <div class="time"></div>
             <div class="date"></div>
             <h2>Los Angeles</h2>
+          </div>
+          <div class="icon">
+          <i class="fa-solid fa-moon"></i>
           </div>
         </div>
 
         <div class="city" id="paris">
-          <div>
-            <h2>Paris</h2>
-            <div class="date"></div>
+          <div class="clock-wrapper">
+            <div class="clock-face"></div>
           </div>
-          <div class="time"><small></small></div>
+          <div class="text-wrapper">
+            <div class="time"></div>
+            <div class="date"></div>
+            <h2>Paris</h2>
+          </div>
+          <div class="icon">
+          <i class="fa-solid fa-sun"></i>
+          </div>
         </div>
 
         <div class="city" id="tokyo">
-          <div>
-            <h2>Tokyo</h2>
-            <div class="date"></div>
+          <div class="clock-wrapper">
+            <div class="clock-face"></div>
           </div>
-          <div class="time"><small></small></div>
+          <div class="text-wrapper">
+            <div class="time"></div>
+            <div class="date"></div>
+            <h2>Tokyo</h2>
+          </div>
+          <div class="icon">
+          <i class="fa-solid fa-sun"></i>
+          </div>
         </div>
       </div>
     </div>

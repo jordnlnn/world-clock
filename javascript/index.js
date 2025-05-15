@@ -15,7 +15,7 @@ if (parisEl) {
     let parisTimeEl = parisEl.querySelector(".time");
     let parisTime = moment().tz("Europe/Paris");
 
-    parisDateEl.innerHTML = moment().format("MMMM Do, YYYY");
+    parisDateEl.innerHTML = moment().format("ddd, MMMM Do, YYYY");
     parisTimeEl.innerHTML = parisTime.format("h:mm [<small>]A[</small>]");
 }
 
@@ -26,7 +26,7 @@ if (tokyoEl) {
     let tokyoTimeEl = tokyoEl.querySelector(".time");
     let tokyoTime = moment().tz("Asia/Tokyo");
 
-    tokyoDateEl.innerHTML = moment().format("MMMM Do, YYYY");
+    tokyoDateEl.innerHTML = moment().format("ddd, MMMM Do, YYYY");
     tokyoTimeEl.innerHTML = tokyoTime.format("h:mm [<small>]A[</small>]");
 }
 }
