@@ -83,9 +83,10 @@ select {
     position: absolute;
     top: 50%;
     left: 50%;
-    height: 65px;
-    width: 3px;
+    height: 55px;
+    width: 2px;
     transform-origin: bottom center;
+    transition: all 0.1s ease-in;
 }
 
 .needle.hour {
@@ -94,13 +95,24 @@ select {
 
 .needle.minute {
     transform: translate(-50%, -100%) rotate(0deg);
-    height: 100px;
+    height: 80px;
 }
 
 .needle.second {
     transform: translate(-50%, -100%) rotate(0deg);
-    height: 100px;
+    height: 80px;
     background-color: var(--red);
+}
+
+.center-point {
+    background-color: var(--white);
+    width: 5px;
+    height: 5px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
 }
 
 .city {
