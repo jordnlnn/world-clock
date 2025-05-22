@@ -11,6 +11,28 @@ function updateCityTime(cityId, timeZone) {
 
   dateEl.innerHTML = cityTime.format("ddd, MMMM Do, YYYY");
   timeEl.innerHTML = cityTime.format("h:mm [<small>]A[</small>]");
+
+    // DAY/NIGHT LOGIC
+  const hour = cityTime.hours();
+  const isDayTime = hour >= 6 && hour < 18;
+
+  const sunIcon = cityEl.querySelector(".fa-sun");
+  const moonIcon = cityEl.querySelector(".fa-moon");
+  const clockFace = cityEl.querySelector(".clock-face");
+
+  if (sunIcon && moonIcon) {
+    sunIcon.style.display = isDayTime ? "block" : "none";
+    moonIcon.style.display = isDayTime ? "none" : "block";
+  }
+
+if (isDayTime) {
+  cityEl.classList.remove("night-mode-card");
+  clockFace.classList.remove("night-clock-face");
+} else {
+  cityEl.classList.add("night-mode-card");
+  clockFace.classList.add("night-clock-face");
+}
+
 }
 
 // Update time for all listed cities
@@ -28,31 +50,33 @@ function updateCity(event) {
   }
 
   const cityName = cityTimeZone.replace("_", " ").split("/")[1];
-  const cityTime = moment().tz(cityTimeZone);
-  const citiesElement = document.querySelector("#cities");
   const cityId = cityName.toLowerCase().replace(/ /g, "-");
+  const cityTime = moment().tz(cityTimeZone);
+
+  const citiesElement = document.querySelector("#cities");
 
   citiesElement.innerHTML = `
-  
     <div class="city" id="${cityId}">
-    <div class="clock-wrapper">
-            <div class="clock-face">
-              <div class="needle hour"></div>
-              <div class="needle minute"></div>
-              <div class="needle second"></div>
-              <div class="center-point"></div>
-            </div>
-          </div>
-      
+      <i class="fa-solid fa-sun"></i>
+      <i class="fa-solid fa-moon"></i>
+      <div class="clock-wrapper">
+        <div class="clock-face">
+          <div class="needle hour"></div>
+          <div class="needle minute"></div>
+          <div class="needle second"></div>
+          <div class="center-point"></div>
+        </div>
+      </div>
       <div class="time">${cityTime.format("h:mm")}<small>${cityTime.format("A")}</small></div>
-        
-        <div class="date">${cityTime.format("ddd, MMMM Do, YYYY")}</div>
-        <h2>${cityName}</h2>
-    
-      
+      <div class="date">${cityTime.format("ddd, MMMM Do, YYYY")}</div>
+      <h2>${cityName}</h2>
     </div>
   `;
+
+  updateCityTime(cityId, cityTimeZone);
+  setAnalogTimeForCity(cityId, cityTimeZone);
 }
+
 
 // -------------------- ANALOG CLOCK --------------------
 const scale = (num, in_min, in_max, out_min, out_max) => {

@@ -27,7 +27,7 @@ body {
 h1 {
     text-align: center;
     font-size: 48px;
-    font-weight: 100;
+    font-weight: 300;
     text-transform: uppercase;
     color: var(--white);
 }
@@ -153,7 +153,6 @@ select {
 }
 
 .fa-sun, .fa-moon {
-    color: var(--light-pink);
     opacity: 0.1;
     z-index: 25;
     font-size: 200px;
@@ -162,9 +161,30 @@ select {
     left: 0;
 }
 
+.fa-sun {
+    color: var(--light-pink);
+}
+
+.fa-moon {
+    color: var(--light-purple);
+}
+
+.night-mode-card {
+    color: var(--white);
+    background-color: var(--deep-dark-purple);
+}
+
+.night-clock-face {
+    background-color: var(--dark-purple);
+}
+
 footer {
     text-align: center;
     font-size: 14px;
+    color: var(--white);
+}
+
+footer a {
     color: var(--white);
 }
 
