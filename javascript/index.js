@@ -30,14 +30,26 @@ function updateCity(event) {
   const cityName = cityTimeZone.replace("_", " ").split("/")[1];
   const cityTime = moment().tz(cityTimeZone);
   const citiesElement = document.querySelector("#cities");
+  const cityId = cityName.toLowerCase().replace(/ /g, "-");
 
   citiesElement.innerHTML = `
-    <div class="city">
-      <div>
+  
+    <div class="city" id="${cityId}">
+    <div class="clock-wrapper">
+            <div class="clock-face">
+              <div class="needle hour"></div>
+              <div class="needle minute"></div>
+              <div class="needle second"></div>
+              <div class="center-point"></div>
+            </div>
+          </div>
+      
+      <div class="time">${cityTime.format("h:mm")}<small>${cityTime.format("A")}</small></div>
+        
+        <div class="date">${cityTime.format("ddd, MMMM Do, YYYY")}</div>
         <h2>${cityName}</h2>
-        <div class="date">${cityTime.format("MMMM Do, YYYY")}</div>
-      </div>
-      <div class="time">${cityTime.format("h:mm:ss")}<small>${cityTime.format("A")}</small></div>
+    
+      
     </div>
   `;
 }
@@ -70,6 +82,10 @@ function updateAllAnalogClocks() {
   setAnalogTimeForCity("los-angeles", "America/Los_Angeles");
   setAnalogTimeForCity("paris", "Europe/Paris");
   setAnalogTimeForCity("tokyo", "Asia/Tokyo");
+  setAnalogTimeForCity("auckland", "Pacific/Auckland");
+  setAnalogTimeForCity("phoenix", "America/Phoenix");
+  setAnalogTimeForCity("new-york", "America/New_York");
+  setAnalogTimeForCity("london", "Europe/London");
 }
 
 //--------------------------------------------------

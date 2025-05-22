@@ -14,15 +14,13 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     font-family: "Montserrat", sans-serif;
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
 }
 
 .container {
     max-width: 1000px;
     margin: 60px auto;
-    /**/
-
 }
 
 /*MAIN HEADING*/
@@ -129,6 +127,7 @@ select {
     text-align: center;
     font-size: 32px;
     position: relative;
+    margin: 0 auto;
 }
 
 .text-wrapper {
@@ -167,4 +166,11 @@ footer {
     text-align: center;
     font-size: 14px;
     color: var(--white);
+}
+
+@media screen and (max-width: 999px) {
+    #cities {
+        flex-direction: column;
+        gap: 150px;
+    }
 }
